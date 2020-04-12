@@ -1,0 +1,22 @@
+version: '3.0'
+services:
+  server:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8080:80"
+    links:
+      - xe_db:db
+    volumes:
+      - ./xpressengine:/var/www/xpressengine
+    command: apachectl -DFOREGROUND
+  xe_db:
+    image: mysql:5.7
+    ports:
+      - "33060:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=xe
+    volumes:
+      - ./database:/var/lib/mysql
