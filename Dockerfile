@@ -16,8 +16,8 @@ RUN a2ensite xe.conf
 RUN a2enmod rewrite
 RUN service apache2 restart
 
-# RUN apt-get install build-essential libssl-dev -y
-# RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+RUN apt-get install build-essential libssl-dev -y
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 # RUN ["source ~/.bashrc"]
 # RUN nvm install 8.10.0
 # RUN npm install gulp -g
